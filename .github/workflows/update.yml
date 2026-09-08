@@ -3,12 +3,12 @@ name: Update m3u8 links
 on:
   schedule:
     - cron: "0 */12 * * *"   # Runs every 12 hours (00:00 and 12:00 UTC)
-  workflow_dispatch:         # Allows you to run it manually
+  workflow_dispatch:         # Still allows manual runs
 
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
 
     steps:
       - name: Checkout code
