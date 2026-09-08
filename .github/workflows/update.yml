@@ -1,0 +1,30 @@
+name: Update m3u8 links
+
+on:
+  schedule:
+    - cron: "*/720 * * * *"   # Runs every 720 minutes
+  workflow_dispatch:         # Allows you to run it manually
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          playwright install chromium --with-deps
+
+      - name: Run the script
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+        run: python main.py
