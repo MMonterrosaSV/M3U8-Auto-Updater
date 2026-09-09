@@ -87,6 +87,7 @@ channelList = [
     ["TELECINCO", "https://tvnow247.top/embed/telecinco","link_7Q9u_034Lgvx7xL3IKr4KzERSnz"],
     ["TF1", "https://tvnow247.top/embed/tf1-france/","link_7Q9u_034Lh03TJLuzajpxMEQt2j"],
     ["HBO 2", "https://tvnow247.top/embed/hbo2-usa/","link_7Q9u_034Lh5lQ2GnPzRaozCswyZ"],
+    ["ESPN ARGENTINA", "https://pelotalibretv.uno/en-vivo/espn-1","link_7Q9u_034M0mAvzdTMxtXJwKPvMR"],
 ]
 
 
