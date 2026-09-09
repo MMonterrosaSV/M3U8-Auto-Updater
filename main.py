@@ -80,6 +80,13 @@ channelList = [
     ["TNT SPORTS 1 UK", "https://tvnow247.top/embed/tnt-sports-1/", "lnk_7Q9u_lTgnfvHKZ1X5Cfcavm59F"],
     ["ESPN DEPORTES", "https://tvnow247.top/embed/espn-deportes/", "link_7Q9u_034LUN9niVnpONdrRmHJcM"],
     ["M+ DEPORTES 1", "https://tvnow247.top/embed/movistar-deportes-4", "link_7Q9u_034LURlhtFmAFNKAYO6n0d"],
+    ["HBO USA", "https://tvnow247.top/embed/hbo-usa/","link_7Q9u_034LgYqOcjA360ayMYM8fp"],
+    ["M+ DEPORTES 2", "https://tvnow247.top/embed/movistar-deportes-2/","link_7Q9u_034LgfnaLff6J8kR7ROKMz"],
+    ["M+", "https://tvnow247.top/embed/movistar-supercopa-de-espana/","link_7Q9u_034LgnxeGnsxZqK0dhE26x"],
+    ["CUATRO", "https://tvnow247.top/embed/cuatro-spain/","link_7Q9u_034LgsDnJnWjE7N2fkyQhX"],
+    ["TELECINCO", "https://tvnow247.top/embed/telecinco","link_7Q9u_034Lgvx7xL3IKr4KzERSnz"],
+    ["TF1", "https://tvnow247.top/embed/tf1-france/","link_7Q9u_034Lh03TJLuzajpxMEQt2j"],
+    ["HBO 2", "https://tvnow247.top/embed/hbo2-usa/","link_7Q9u_034Lh5lQ2GnPzRaozCswyZ"],
 ]
 
 
