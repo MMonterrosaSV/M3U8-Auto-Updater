@@ -3,11 +3,12 @@ import requests
 import json
 import os
 
-API_KEY = os.getenv("API_KEY")   # ← comes from GitHub Secret
+API_KEY = os.getenv("API_KEY")
+
 
 def update_short_link(api_key: str, link_id: str, original_url: str, title: str = None, path: str = None):
     if not original_url:
-        print("  Skipping update (no m3u8 found)")
+        print("  Skipping update (no valid m3u8 found)")
         return None
 
     url = f"https://api.short.io/links/{link_id}"
@@ -33,8 +34,22 @@ def update_short_link(api_key: str, link_id: str, original_url: str, title: str 
         print("  Link updated successfully")
         return response.json()
     else:
-        print(f"  Update failed: {response.status_code}")
+        print(f"  Update failed: {response.status_code} - {response.text}")
         return None
+
+
+def is_valid_m3u8(url: str) -> bool:
+    """Check if the URL is a real working m3u8 playlist"""
+    try:
+        r = requests.get(url, timeout=10, headers={
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        })
+        if r.status_code != 200:
+            return False
+        text = r.text[:800].lower()
+        return "#extm3u" in text
+    except Exception:
+        return False
 
 
 def extract_m3u8(url: str, headless: bool = True):
@@ -64,11 +79,41 @@ def extract_m3u8(url: str, headless: bool = True):
         except Exception as e:
             print(f"  Warning: {e}")
 
-        page.wait_for_timeout(4000)
+        page.wait_for_timeout(5000)
         browser.close()
 
-    if m3u8_urls:
-        return sorted(m3u8_urls)[0]
+    if not m3u8_urls:
+        return None
+
+    # ---------- FILTERING ----------
+    candidates = []
+
+    for u in m3u8_urls:
+        u_lower = u.lower()
+
+        # Skip obvious junk
+        if any(bad in u_lower for bad in [
+            "ads", "advert", "tracker", "analytics", "pixel",
+            "error", "404", "forbidden", "thumbnail", "preview",
+            "banner", "promo"
+        ]):
+            continue
+
+        candidates.append(u)
+
+    if not candidates:
+        candidates = list(m3u8_urls)
+
+    # Sort by length (longer URLs are often better) and test them
+    candidates = sorted(candidates, key=len, reverse=True)
+
+    for candidate in candidates:
+        print(f"  Testing: {candidate[:80]}...")
+        if is_valid_m3u8(candidate):
+            print("  → Valid m3u8 found")
+            return candidate
+
+    print("  → No valid m3u8 after testing")
     return None
 
 
@@ -97,8 +142,8 @@ if __name__ == "__main__":
         print(f"\nProcessing: {name}")
         new_m3u8 = extract_m3u8(embed_url, headless=True)
         if new_m3u8:
-            print(f"  Found → {new_m3u8}")
+            print(f"  Final URL → {new_m3u8}")
             update_short_link(API_KEY, link_id, new_m3u8)
         else:
-            print("  No m3u8 found")
+            print("  No valid m3u8 found")
     print("\nJob finished.")
