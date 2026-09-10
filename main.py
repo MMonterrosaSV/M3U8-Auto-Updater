@@ -38,22 +38,8 @@ def update_short_link(api_key: str, link_id: str, original_url: str, title: str 
         return None
 
 
-def is_valid_m3u8(url: str) -> bool:
-    """Check if the URL is a real working m3u8 playlist"""
-    try:
-        r = requests.get(url, timeout=10, headers={
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-        })
-        if r.status_code != 200:
-            return False
-        text = r.text[:800].lower()
-        return "#extm3u" in text
-    except Exception:
-        return False
-
-
 def extract_m3u8(url: str, headless: bool = True):
-    m3u8_urls = set()
+    m3u8_candidates = []
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=headless)
@@ -63,58 +49,63 @@ def extract_m3u8(url: str, headless: bool = True):
         )
         page = context.new_page()
 
-        def on_request(request):
-            if ".m3u8" in request.url.lower():
-                m3u8_urls.add(request.url)
-
-        def on_response(response):
+        def handle_response(response):
             if ".m3u8" in response.url.lower():
-                m3u8_urls.add(response.url)
+                try:
+                    body = response.text()
+                    m3u8_candidates.append({
+                        "url": response.url,
+                        "body": body
+                    })
+                except:
+                    m3u8_candidates.append({
+                        "url": response.url,
+                        "body": None
+                    })
 
-        page.on("request", on_request)
-        page.on("response", on_response)
+        page.on("response", handle_response)
 
         try:
             page.goto(url, wait_until="networkidle", timeout=60000)
         except Exception as e:
             print(f"  Warning: {e}")
 
-        page.wait_for_timeout(5000)
+        page.wait_for_timeout(6000)
         browser.close()
 
-    if not m3u8_urls:
+    if not m3u8_candidates:
+        print("  No m3u8 URLs detected at all")
         return None
 
-    # ---------- FILTERING ----------
-    candidates = []
-
-    for u in m3u8_urls:
-        u_lower = u.lower()
-
-        # Skip obvious junk
-        if any(bad in u_lower for bad in [
+    # Remove obvious junk
+    clean = []
+    for item in m3u8_candidates:
+        u = item["url"].lower()
+        if any(bad in u for bad in [
             "ads", "advert", "tracker", "analytics", "pixel",
-            "error", "404", "forbidden", "thumbnail", "preview",
-            "banner", "promo"
+            "banner", "preview", "thumbnail", "promo"
         ]):
             continue
+        clean.append(item)
 
-        candidates.append(u)
+    if not clean:
+        clean = m3u8_candidates
 
-    if not candidates:
-        candidates = list(m3u8_urls)
+    # Prefer ones that contain a real playlist
+    valid = []
+    for item in clean:
+        if item["body"] and "#EXTM3U" in item["body"].upper():
+            valid.append(item)
 
-    # Sort by length (longer URLs are often better) and test them
-    candidates = sorted(candidates, key=len, reverse=True)
+    if valid:
+        best = max(valid, key=lambda x: len(x["url"]))
+        print("  Valid m3u8 confirmed")
+        return best["url"]
 
-    for candidate in candidates:
-        print(f"  Testing: {candidate[:80]}...")
-        if is_valid_m3u8(candidate):
-            print("  → Valid m3u8 found")
-            return candidate
-
-    print("  → No valid m3u8 after testing")
-    return None
+    # Fallback: longest URL
+    best = max(clean, key=lambda x: len(x["url"]))
+    print("  Using best candidate (could not fully verify body)")
+    return best["url"]
 
 
 # Channels
