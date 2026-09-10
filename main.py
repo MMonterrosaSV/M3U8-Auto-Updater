@@ -39,7 +39,7 @@ def update_short_link(api_key: str, link_id: str, original_url: str, title: str 
 
 
 def extract_m3u8(url: str, headless: bool = True):
-    m3u8_candidates = []
+    candidates = []
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=headless)
@@ -50,18 +50,15 @@ def extract_m3u8(url: str, headless: bool = True):
         page = context.new_page()
 
         def handle_response(response):
-            if ".m3u8" in response.url.lower():
-                try:
-                    body = response.text()
-                    m3u8_candidates.append({
-                        "url": response.url,
-                        "body": body
-                    })
-                except:
-                    m3u8_candidates.append({
-                        "url": response.url,
-                        "body": None
-                    })
+            response_url = response.url.lower()
+
+            # Catch both normal .m3u8 and the special playlist?token= URLs
+            if (
+                ".m3u8" in response_url
+                or ("playlist" in response_url and "token=" in response_url)
+                or "chunk.tvnow247.today" in response_url
+            ):
+                candidates.append(response.url)
 
         page.on("response", handle_response)
 
@@ -70,42 +67,34 @@ def extract_m3u8(url: str, headless: bool = True):
         except Exception as e:
             print(f"  Warning: {e}")
 
-        page.wait_for_timeout(6000)
+        page.wait_for_timeout(7000)
         browser.close()
 
-    if not m3u8_candidates:
-        print("  No m3u8 URLs detected at all")
+    if not candidates:
+        print("  No playlist URLs detected")
         return None
 
     # Remove obvious junk
     clean = []
-    for item in m3u8_candidates:
-        u = item["url"].lower()
-        if any(bad in u for bad in [
-            "ads", "advert", "tracker", "analytics", "pixel",
-            "banner", "preview", "thumbnail", "promo"
-        ]):
+    for u in candidates:
+        u_lower = u.lower()
+        if any(bad in u_lower for bad in ["ads", "advert", "tracker", "analytics", "pixel", "banner"]):
             continue
-        clean.append(item)
+        clean.append(u)
 
     if not clean:
-        clean = m3u8_candidates
+        clean = candidates
 
-    # Prefer ones that contain a real playlist
-    valid = []
-    for item in clean:
-        if item["body"] and "#EXTM3U" in item["body"].upper():
-            valid.append(item)
+    # Prefer the ones from chunk.tvnow247.today or containing token=
+    preferred = [u for u in clean if "chunk.tvnow247.today" in u or "token=" in u]
 
-    if valid:
-        best = max(valid, key=lambda x: len(x["url"]))
-        print("  Valid m3u8 confirmed")
-        return best["url"]
+    if preferred:
+        best = max(preferred, key=len)
+    else:
+        best = max(clean, key=len)
 
-    # Fallback: longest URL
-    best = max(clean, key=lambda x: len(x["url"]))
-    print("  Using best candidate (could not fully verify body)")
-    return best["url"]
+    print(f"  Found → {best}")
+    return best
 
 
 # Channels
