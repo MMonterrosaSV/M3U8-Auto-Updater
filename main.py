@@ -104,6 +104,9 @@ channelList = [
     ["M+ CHAMPIONS LEAGUE 1", "https://tvnow247.top/embed/movistar-liga-de-campeones/","link_8lVb_034NmvWWuNzkJpCkcgzlyv"],
     ["M+ DEPORTES 1", "https://tvnow247.top/embed/movistar-deportes-4","link_8lVb_034Nn2Mw6Wn3ITpgEYsKgu"],
     ["M+ DEPORTES 2", "https://tvnow247.top/embed/movistar-deportes-2/","link_8lVb_034Nn5YWKZvxcChbeWOEd2"],
+    ["M+", "https://tvnow247.top/embed/movistar-supercopa-de-espana/","link_8lVb_034NnXUCpB0efU9gpF5sOm"],
+    ["ESPN DEPORTES", "https://tvnow247.top/embed/espn-deportes/","link_8lVb_034NnaO2VBvjNvfVjzwYUe"],
+    ["Dsports", "https://wsdeportes.net/?v=dsports","link_8lVb_034NncacnF8WSu7c6d9JCf"],
     
 ]
 
