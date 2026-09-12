@@ -99,21 +99,27 @@ def extract_m3u8(url: str, headless: bool = True):
 
 # Channels
 channelList = [
-    ["M+ CHAMPIONS LEAGUE 1", "https://tvnow247.top/embed/movistar-liga-de-campeones/", "lnk_7Q9u_Xeqfu7a54n7fCJ4CcGLTm"],
-    ["M+ LA LIGA 1", "https://tvnow247.top/embed/movistar-laliga/", "lnk_7Q9u_uJNYPSsx7Y7bSmcYIfgg5"],
-    ["Dazn La Liga", "https://tvnow247.top/embed/dazn-laliga/", "lnk_7Q9u_smbJ8VHPUsC9r1rz72R1g"],
-    ["TNT SPORTS 1 UK", "https://tvnow247.top/embed/tnt-sports-1/", "lnk_7Q9u_lTgnfvHKZ1X5Cfcavm59F"],
-    ["ESPN DEPORTES", "https://tvnow247.top/embed/espn-deportes/", "link_7Q9u_034LUN9niVnpONdrRmHJcM"],
-    ["M+ DEPORTES 1", "https://tvnow247.top/embed/movistar-deportes-4", "link_7Q9u_034LURlhtFmAFNKAYO6n0d"],
-    ["HBO USA", "https://tvnow247.top/embed/hbo-usa/","link_7Q9u_034LgYqOcjA360ayMYM8fp"],
-    ["M+ DEPORTES 2", "https://tvnow247.top/embed/movistar-deportes-2/","link_7Q9u_034LgfnaLff6J8kR7ROKMz"],
-    ["M+", "https://tvnow247.top/embed/movistar-supercopa-de-espana/","link_7Q9u_034LgnxeGnsxZqK0dhE26x"],
-    ["CUATRO", "https://tvnow247.top/embed/cuatro-spain/","link_7Q9u_034LgsDnJnWjE7N2fkyQhX"],
-    ["TELECINCO", "https://tvnow247.top/embed/telecinco","link_7Q9u_034Lgvx7xL3IKr4KzERSnz"],
-    ["TF1", "https://tvnow247.top/embed/tf1-france/","link_7Q9u_034Lh03TJLuzajpxMEQt2j"],
-    ["HBO 2", "https://tvnow247.top/embed/hbo2-usa/","link_7Q9u_034Lh5lQ2GnPzRaozCswyZ"],
-    ["ESPN ARGENTINA", "https://pelotalibretv.uno/en-vivo/espn-1","link_7Q9u_034M0mAvzdTMxtXJwKPvMR"],
+    ["DAZN LA LIGA 1", "https://tvnow247.top/embed/dazn-laliga/","link_8lVb_034NmWNP9JdsIWUlhm5MBx"]
+    ["M+ LA LIGA 1", "https://tvnow247.top/embed/movistar-laliga/","link_8lVb_034Nmt6ryNxhI0mVh5q4Oc"],
+    ["M+ CHAMPIONS LEAGUE 1", "https://tvnow247.top/embed/movistar-liga-de-campeones/","link_8lVb_034NmvWWuNzkJpCkcgzlyv"],
+    ["M+ DEPORTES 1", "https://tvnow247.top/embed/movistar-deportes-4"," "],
+    ["M+ DEPORTES 2", "https://tvnow247.top/embed/movistar-deportes-2/"," "],
+    ["M+", "https://tvnow247.top/embed/movistar-supercopa-de-espana/"," "],
+    ["ESPN DEPORTES", "https://tvnow247.top/embed/espn-deportes/"," "],
+    ["Dsports", "https://wsdeportes.net/?v=dsports"," "],
+    ["TUDN MEXICO", "https://tvnow247.top/watch/tudn-mx/"," "],
+    ["TUDN USA", "https://tvnow247.top/watch/tudn-usa/"," "],
+    ["TUDN USA BACKUP", "https://wsdeportes.net/?v=tudnus"," "],
+    ["TNT SPORTS 1", "https://tvnow247.top/embed/tnt-sports-1/"," "],
+    ["TNT SPORTS 2", "https://tvnow247.top/watch/tnt-sports-2/"," "],
+    ["TNT SPORTS 3", "https://tvnow247.top/watch/tnt-sports-3/"," "],
+    ["SKY SPORTS PREMIER LEAGUE", "https://tvnow247.top/watch/sky-sports-premier-league/"," "],
+    ["SKY SPORTS FOOTBALL", "https://tvnow247.top/watch/sky-sports-football/"," "],
+    ["SKY SPORTS PLUS", "https://tvnow247.top/watch/sky-sports-plus/"," "],
+    ["SKY SPORTS MAIN EVENT", "https://tvnow247.top/watch/sky-sports-main-event/"," "]
 ]
+
+    
 
 
 if __name__ == "__main__":
