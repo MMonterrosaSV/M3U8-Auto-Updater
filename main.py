@@ -99,7 +99,7 @@ def extract_m3u8(url: str, headless: bool = True):
 
 # Channels
 channelList = [
-    ["DAZN LA LIGA 1", "https://tvnow247.top/embed/dazn-laliga/","link_8lVb_034NmWNP9JdsIWUlhm5MBx"]
+    ["DAZN LA LIGA 1", "https://tvnow247.top/embed/dazn-laliga/","link_8lVb_034NmWNP9JdsIWUlhm5MBx"],
     ["M+ LA LIGA 1", "https://tvnow247.top/embed/movistar-laliga/","link_8lVb_034Nmt6ryNxhI0mVh5q4Oc"],
     ["M+ CHAMPIONS LEAGUE 1", "https://tvnow247.top/embed/movistar-liga-de-campeones/","link_8lVb_034NmvWWuNzkJpCkcgzlyv"],
     ["M+ DEPORTES 1", "https://tvnow247.top/embed/movistar-deportes-4","link_8lVb_034Nn2Mw6Wn3ITpgEYsKgu"],
