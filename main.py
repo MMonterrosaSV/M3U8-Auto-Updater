@@ -104,19 +104,7 @@ channelList = [
     ["M+ CHAMPIONS LEAGUE 1", "https://tvnow247.top/embed/movistar-liga-de-campeones/","link_8lVb_034NmvWWuNzkJpCkcgzlyv"],
     ["M+ DEPORTES 1", "https://tvnow247.top/embed/movistar-deportes-4","link_8lVb_034Nn2Mw6Wn3ITpgEYsKgu"],
     ["M+ DEPORTES 2", "https://tvnow247.top/embed/movistar-deportes-2/","link_8lVb_034Nn5YWKZvxcChbeWOEd2"],
-    ["M+", "https://tvnow247.top/embed/movistar-supercopa-de-espana/"," "],
-    ["ESPN DEPORTES", "https://tvnow247.top/embed/espn-deportes/"," "],
-    ["Dsports", "https://wsdeportes.net/?v=dsports"," "],
-    ["TUDN MEXICO", "https://tvnow247.top/watch/tudn-mx/"," "],
-    ["TUDN USA", "https://tvnow247.top/watch/tudn-usa/"," "],
-    ["TUDN USA BACKUP", "https://wsdeportes.net/?v=tudnus"," "],
-    ["TNT SPORTS 1", "https://tvnow247.top/embed/tnt-sports-1/"," "],
-    ["TNT SPORTS 2", "https://tvnow247.top/watch/tnt-sports-2/"," "],
-    ["TNT SPORTS 3", "https://tvnow247.top/watch/tnt-sports-3/"," "],
-    ["SKY SPORTS PREMIER LEAGUE", "https://tvnow247.top/watch/sky-sports-premier-league/"," "],
-    ["SKY SPORTS FOOTBALL", "https://tvnow247.top/watch/sky-sports-football/"," "],
-    ["SKY SPORTS PLUS", "https://tvnow247.top/watch/sky-sports-plus/"," "],
-    ["SKY SPORTS MAIN EVENT", "https://tvnow247.top/watch/sky-sports-main-event/"," "]
+    
 ]
 
     
