@@ -107,6 +107,9 @@ channelList = [
     ["M+", "https://tvnow247.top/embed/movistar-supercopa-de-espana/","link_8lVb_034NnXUCpB0efU9gpF5sOm"],
     ["ESPN DEPORTES", "https://tvnow247.top/embed/espn-deportes/","link_8lVb_034NnaO2VBvjNvfVjzwYUe"],
     ["Dsports", "https://wsdeportes.net/?v=dsports","link_8lVb_034NncacnF8WSu7c6d9JCf"],
+    ["TUDN MEXICO", "https://tvnow247.top/watch/tudn-mx/","link_8lVb_034NoIbC6ECKiIfK6i2eMP"],
+    ["TUDN USA", "https://tvnow247.top/watch/tudn-usa/","link_8lVb_034NoKhut6EOxcGxFI0SdJ"],
+    ["TUDN USA BACKUP", "https://wsdeportes.net/?v=tudnus","link_8lVb_034NoMasiuFHzPCAjUdnRH"],
     
 ]
 
