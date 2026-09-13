@@ -110,6 +110,9 @@ channelList = [
     ["TUDN MEXICO", "https://tvnow247.top/watch/tudn-mx/","link_8lVb_034NoIbC6ECKiIfK6i2eMP"],
     ["TUDN USA", "https://tvnow247.top/watch/tudn-usa/","link_8lVb_034NoKhut6EOxcGxFI0SdJ"],
     ["TUDN USA BACKUP", "https://wsdeportes.net/?v=tudnus","link_8lVb_034NoMasiuFHzPCAjUdnRH"],
+    ["TNT SPORTS 1", "https://tvnow247.top/embed/tnt-sports-1/","link_8lVb_034O37xHnyJw9Qhgmnrq4P"],
+    ["TNT SPORTS 2", "https://tvnow247.top/watch/tnt-sports-2/","link_8lVb_034O3Bs1T2h2eBSouPEGI2"],
+    ["TNT SPORTS 3", "https://tvnow247.top/watch/tnt-sports-3/","link_8lVb_034O3EIUngaHpbKfYbr1BY"],
     
 ]
 
