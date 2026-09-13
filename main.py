@@ -117,6 +117,7 @@ channelList = [
     ["SKY SPORTS FOOTBALL", "https://tvnow247.top/watch/sky-sports-football/","link_8lVb_034O3W4m9jCRTn0YSbzjHG"],
     ["SKY SPORTS PLUS", "https://tvnow247.top/watch/sky-sports-plus/","link_8lVb_034O3XybhmejWwHUTAKgH8"],
     ["SKY SPORTS MAIN EVENT", "https://tvnow247.top/watch/sky-sports-main-event/","link_8lVb_034O3ZyZEPcZMzAig0BoLd"]
+    ["Dsports BACKUP", "https://pelotalibretv.uno/en-vivo/directv-sports","link_8lVb_034O3dMva5dtqQuJIijvFc"]
     
 ]
 
