@@ -113,6 +113,10 @@ channelList = [
     ["TNT SPORTS 1", "https://tvnow247.top/embed/tnt-sports-1/","link_8lVb_034O37xHnyJw9Qhgmnrq4P"],
     ["TNT SPORTS 2", "https://tvnow247.top/watch/tnt-sports-2/","link_8lVb_034O3Bs1T2h2eBSouPEGI2"],
     ["TNT SPORTS 3", "https://tvnow247.top/watch/tnt-sports-3/","link_8lVb_034O3EIUngaHpbKfYbr1BY"],
+    ["SKY SPORTS PREMIER LEAGUE", "https://tvnow247.top/watch/sky-sports-premier-league/","link_8lVb_034O3SJOzLgmTDKzvrS3Sm"],
+    ["SKY SPORTS FOOTBALL", "https://tvnow247.top/watch/sky-sports-football/","link_8lVb_034O3W4m9jCRTn0YSbzjHG"],
+    ["SKY SPORTS PLUS", "https://tvnow247.top/watch/sky-sports-plus/","link_8lVb_034O3XybhmejWwHUTAKgH8"],
+    ["SKY SPORTS MAIN EVENT", "https://tvnow247.top/watch/sky-sports-main-event/","link_8lVb_034O3ZyZEPcZMzAig0BoLd"]
     
 ]
 
